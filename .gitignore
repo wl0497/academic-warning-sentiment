@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+*.log
+
+# Java
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/.idea/
+backend/*.iml
+backend/data/*.db
+backend/data/*.trace.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.DS_Store
+frontend/*.local
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# ===== 大文件：使用 GitHub LFS =====
+# 模型权重（>100MB，必须用 LFS）
+# 下载 LFS: https://git-lfs.github.com
+# 安装后运行: git lfs install && git lfs pull
+model/checkpoints/
+model/comprehensive_results/
+model/ablation_results/
+model/comparison_results/
+
+# 训练数据集（>100MB）
+data/dataset/*.csv

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.warning.mapper.PredictResultMapper">
+    <select id="countByLabel" resultType="map">
+        SELECT label, COUNT(*) as count FROM predict_result GROUP BY label
+    </select>
+    <select id="countByWarningLevel" resultType="map">
+        SELECT warning_level, COUNT(*) as count FROM predict_result GROUP BY warning_level
+    </select>
+    <select id="countByDate" resultType="map">
+        SELECT DATE(create_time) as date, COUNT(*) as count
+        FROM predict_result
+        WHERE create_time >= DATE_SUB(NOW(), INTERVAL #{days} DAY)
+        GROUP BY DATE(create_time)
+        ORDER BY date
+    </select>
+</mapper>
